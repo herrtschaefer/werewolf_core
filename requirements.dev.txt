@@ -1,0 +1,5 @@
+-r ./requirements.txt
+pytest>=8.4.1,== 8.4.*
+pytest-mock
+flake8
+

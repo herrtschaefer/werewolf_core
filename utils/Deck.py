@@ -1,5 +1,6 @@
 import random
 
+
 class Deck:
     def __init__(self, cards=None):
         self.cards = []
@@ -16,8 +17,17 @@ class Deck:
     def shuffle(self):
         random.shuffle(self.cards)
 
-    def draw(self):
-        return self.cards.pop() if self.cards else None
+    def draw(self, number=1):
+        if number is None:
+            number = 1
+
+        if not isinstance(number, int) or number < 1:
+            raise ValueError("Number must be an integer >= 1 or None.")
+
+        if len(self.cards) < number:
+            raise IndexError(f"Deck has only {len(self.cards)} cards, but {number} were requested.")
+
+        return [self.cards.pop() for _ in range(number)]
 
     def add_card(self, card, amount=1):
         if not isinstance(amount, int) or amount < 1:

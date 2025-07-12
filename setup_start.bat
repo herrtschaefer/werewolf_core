@@ -1,6 +1,5 @@
 @echo off
 setlocal
-
 :: 1. Prüfen ob venv existiert
 if not exist venv (
     echo [*] Erstelle virtuelles Environment ...
